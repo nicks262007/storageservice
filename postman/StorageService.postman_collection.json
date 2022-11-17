@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "53355280-b62a-4343-94fb-e2c236cbb275",
+		"name": "StorageService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "StoreDocument",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"document\": {\r\n    \"abc\": \"document data\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{StorageHost}}/v1/storage/store",
+					"protocol": "http",
+					"host": [
+						"{{StorageHost}}"
+					],
+					"path": [
+						"v1",
+						"storage",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RetreiveDocument",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{StorageHost}}/v1/storage/retrieve/:hash",
+					"protocol": "http",
+					"host": [
+						"{{StorageHost}}"
+					],
+					"path": [
+						"v1",
+						"storage",
+						"retrieve",
+						":hash"
+					],
+					"variable": [
+						{
+							"key": "hash",
+							"value": "2537201b95ae7f955df8659d49e570aeb6dfb6def2f61c68fa754a55e861d32c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveClient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"asd\",\r\n  \"email\": \"asd@asd.com\",\r\n  \"wkClientDID\": \"adsdas\",\r\n  \"wkClientName\": \"clientName\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{StorageHost}}/v1/client",
+					"protocol": "http",
+					"host": [
+						"{{StorageHost}}"
+					],
+					"path": [
+						"v1",
+						"client"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateClient",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"did\": \"newdid1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{StorageHost}}/v1/client/:clientId",
+					"protocol": "http",
+					"host": [
+						"{{StorageHost}}"
+					],
+					"path": [
+						"v1",
+						"client",
+						":clientId"
+					],
+					"variable": [
+						{
+							"key": "clientId",
+							"value": "da1955b6-1990-4362-9578-e2218f8a7f3e"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetClientById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{StorageHost}}/v1/client/:clientId",
+					"protocol": "http",
+					"host": [
+						"{{StorageHost}}"
+					],
+					"path": [
+						"v1",
+						"client",
+						":clientId"
+					],
+					"variable": [
+						{
+							"key": "clientId",
+							"value": "da1955b6-1990-4362-9578-e2218f8a7f3e"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllClients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{StorageHost}}/v1/client",
+					"protocol": "http",
+					"host": [
+						"{{StorageHost}}"
+					],
+					"path": [
+						"v1",
+						"client"
+					],
+					"query": [
+						{
+							"key": "wkClient",
+							"value": "adsdas",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveDocument",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"hash\": \"asd\",\r\n  \"name\": \"asd\",\r\n  \"did\": \"asd\",\r\n  \"owner\": \"asd\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{StorageHost}}/v1/database/documents",
+					"protocol": "http",
+					"host": [
+						"{{StorageHost}}"
+					],
+					"path": [
+						"v1",
+						"database",
+						"documents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllDocuments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"document\": {\r\n    \"abc\": \"document data\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{StorageHost}}/v1/database/documents?owner=asd",
+					"protocol": "http",
+					"host": [
+						"{{StorageHost}}"
+					],
+					"path": [
+						"v1",
+						"database",
+						"documents"
+					],
+					"query": [
+						{
+							"key": "owner",
+							"value": "asd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDocumentById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"document\": {\r\n    \"abc\": \"document data\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{StorageHost}}/v1/database/documents/:documentId",
+					"protocol": "http",
+					"host": [
+						"{{StorageHost}}"
+					],
+					"path": [
+						"v1",
+						"database",
+						"documents",
+						":documentId"
+					],
+					"variable": [
+						{
+							"key": "documentId",
+							"value": "1b3c96c4-26c3-4845-8ad7-bbac0a23270f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveCredential",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"client\": \"clientDID\",\r\n    \"wkClientDID\": \"CPADID\",\r\n    \"wkClientName\": \"CPAName\",\r\n    \"document\": \"documentDID\",\r\n    \"access\": \"View,Share\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{StorageHost}}/v1/credential",
+					"protocol": "http",
+					"host": [
+						"{{StorageHost}}"
+					],
+					"path": [
+						"v1",
+						"credential"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllCredentials",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{StorageHost}}/v1/credential?client=did:key:z6Mksz3iP1VLo3qL62phcxYZ9UwFdMFBSDcoiQ9cjCfMNxML",
+					"protocol": "http",
+					"host": [
+						"{{StorageHost}}"
+					],
+					"path": [
+						"v1",
+						"credential"
+					],
+					"query": [
+						{
+							"key": "document",
+							"value": "did:dock:5FonMRd7FHJBGhDykTBz4AmcPRj3cysPs4tSvKTQeroSW4s9",
+							"disabled": true
+						},
+						{
+							"key": "client",
+							"value": "did:key:z6Mksz3iP1VLo3qL62phcxYZ9UwFdMFBSDcoiQ9cjCfMNxML"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
